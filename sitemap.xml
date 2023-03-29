@@ -482,6 +482,13 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/us-en/cloudinsights/nkmo_clusterrole_yaml.html</loc>
+      
+      <lastmod>2023-03-29T14:47:36+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/us-en/cloudinsights/reference_data_collector_support_matrix.html</loc>
       
       <lastmod>2023-01-10T14:13:00+00:00</lastmod>
@@ -582,7 +589,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/cloudinsights//search.html</loc>
       
-      <lastmod>2023-03-27T14:04:59+00:00</lastmod>
+      <lastmod>2023-03-29T15:07:18+00:00</lastmod>
       
     </url>
   
@@ -666,7 +673,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/cloudinsights/task_config_telegraf_agent_k8s.html</loc>
       
-      <lastmod>2023-03-23T14:29:55+00:00</lastmod>
+      <lastmod>2023-03-29T14:52:13+00:00</lastmod>
       
     </url>
   
