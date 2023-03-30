@@ -32,6 +32,16 @@
   <link rel="stylesheet" href="/us-en/cloudinsights/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/us-en/cloudinsights/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/us-en/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/cloudinsights/task_dc_rubrik_cdm.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/cloudinsights/task_dc_rubrik_cdm.html" />
   <link rel='stylesheet' href='/us-en/cloudinsights/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
@@ -3046,7 +3056,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-03-24 15:03:43 +0000">03/24/2023</time>
+    <time datetime="2023-03-30 13:20:52 +0000">03/30/2023</time>
     
   
 
@@ -3064,23 +3074,163 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Insights uses the Rubrik CDM data collector to gather inventory and performance data.</p>
+<p>Cloud Insights uses the Rubrik data collector to acquire inventory and performance data from Rubrik storage appliances.</p>
 </div>
-<div class="admonitionblock note">
-<table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="terminology">Terminology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Insights acquires the following inventory information from the Rubrik data collector. For each asset type acquired by Cloud Insights, the most common terminology used for this asset is shown. When viewing or troubleshooting this data collector, keep the following terminology in mind:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<img src="/us-en/cloudinsights/images/note.svg" alt="Note">
-</td>
-<td class="content">
-This is considered a <em>Preview</em> collector and this information is tehrfore subject to change.
-</td>
+<th class="tableblock halign-left valign-top">Vendor/Model Term</th>
+<th class="tableblock halign-left valign-top">Cloud Insights Term</th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage, Storage Pool</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage Node</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disk</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Note: These are common terminology mappings only and might not represent every case for this data source.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="requirements">Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following are required to configure this data collector:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Cloud Insights Acquisition Unit will initiate connections to TCP port 443 to Rubrik cluster. One collector per cluster.</p>
+</li>
+<li>
+<p>Rubrik cluster IP address.</p>
+</li>
+<li>
+<p>User name and password to the cluster.</p>
+</li>
+<li>
+<p>Port requirement: HTTPS 443</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration">Configuration</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IP address of the Rubrik cluster</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User name for the cluster</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the cluster</p></td>
+</tr>
+</tbody>
 </table>
 </div>
+</div>
+<div class="sect1">
+<h2 id="advanced-configuration">Advanced configuration</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Inventory poll interval (min)</th>
+<th class="tableblock halign-left valign-top">The default is 60</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performance Poll Interval (sec)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default is 300</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>This page is coming soon.</p>
+<p>Some things to try if you encounter problems with this data collector:</p>
+</div>
+<div class="sect2">
+<h3 id="inventory">Inventory</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Problem:</th>
+<th class="tableblock halign-left valign-top">Try this:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I received a message that more than one storage is created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check that the cluster is configured correctly, and the collector is pointing to a single cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I received a warning that disk API returned more data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check with support to get additional data.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Additional information may be found from the <a href="concept_requesting_support.html">Support</a> page or in the <a href="https://docs.netapp.com/us-en/cloudinsights/CloudInsightsDataCollectorSupportMatrix.pdf">Data Collector Support Matrix</a>.</p>
+</div>
+</div>
+</div>
 </div>
 
     </article>
